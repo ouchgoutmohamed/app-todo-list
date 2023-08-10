@@ -1,0 +1,223 @@
+$white : #fff;
+$black : rgb(63, 63, 63);
+
+@mixin button {
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    // border-radius: 4px;
+    background-color:rgb(100, 149, 237);
+    padding: 10px 15px;
+    transition: background-color 0.2s ease-out;
+
+    border-top-left-radius: 5px !important;
+    border-bottom-left-radius: 5px !important;
+    border-top-right-radius: 5px !important;
+    border-bottom-right-radius: 5px !important;
+
+    &:hover{
+        background-color: rgb(90, 132, 210);
+    }
+}
+
+body{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans TC', 'Roboto', 'Microsoft JhengHei' , '微軟正黑體' , sans-serif;
+    background-image: url('../img/Background.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    overflow: auto;
+
+    ul{
+        list-style: none;
+        padding-left: 0;
+    }
+}
+
+.hero{
+    background-color: rgba(3, 3, 3, 0.5);
+    height: 100vh;
+    width: 100%;
+}
+
+.container{
+    max-width: 500px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5rem;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    // height: 100vh;
+
+    // .box{
+    //     position: relative;
+    //     top: 50%;
+    //     left: 50%;
+    //     transform: translate(-50%,-50%);
+    // }
+
+    h1{
+        font-size: 4.5rem;
+        font-weight: bold;
+        color: $white;
+    }
+
+    .subtitle{
+        color: $white;
+        font-size: 24px;
+    }
+
+    .list-input{
+        .form-control{
+            // width: 80%;
+            padding: 10px 20px;
+            margin-right: 10px
+        }
+
+        .add-btn{
+            @include button;
+            background-color:darkcyan;
+            margin-right: 1px;
+
+            &:hover{
+                background-color: rgb(33, 183, 206)
+            }
+        }
+
+        .clear-btn{
+            @include button;
+        }
+    }
+
+    input[type=text]:focus{
+        border-color: none;
+        box-shadow: none;
+        outline: 0 none;
+    }
+
+    .content{
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 10px;
+        padding: 0;
+    }
+    
+    .list-control{
+        .list-filters{
+            display: flex;
+            width: 100%;
+
+            span{
+                font-size: 18px;
+                color: rgb(190, 190, 190);
+                cursor: pointer;
+                padding: 10px 35px;
+                border-bottom: 2px solid rgb(206, 206, 206);
+                width: 100%;
+                text-align: center;
+
+                &:hover{
+                    color: $black;
+                    border-bottom: 2px solid  $black;
+                }
+            }
+
+            span.active{
+                color: #feba31;
+                border-bottom: 2px solid #feba31;
+            }
+        }
+    }
+
+    .list-content{
+        
+        padding-right: calc(var(--bs-gutter-x) * .5);
+        padding-left: calc(var(--bs-gutter-x) * .5);
+
+        .list{
+            margin-top: 20px;
+            padding: 0 1rem;
+            
+            .todo{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-top: 0.8rem;
+                border-bottom: 1px solid #a59f95;
+
+                label{
+                    display: flex;
+
+                    input{
+                        margin-right: 20px;
+                        width: 20px;
+                        border-radius: 10px;
+                    }
+
+                    p{
+                        font-size: 20px;
+                        color: $black;
+                        margin-top: 15px;
+                    }
+
+                    p.checked{
+                        text-decoration: line-through;
+                        color: rgb(141, 140, 140);
+                    }
+                }
+
+                button{
+                    color: rgb(91, 91, 91);
+                    border: none;
+                    padding: 8px 12px;
+                    border-radius: 5px;
+                    background-color: #fed582;
+                    transition: all 0.2s ease-out;
+
+                    &:hover{
+                        background-color: #feba31;
+                        color: white;
+                    }
+                }
+            }
+        }
+
+        .list.overflow{
+            max-height: 250px;
+            overflow-y: auto;
+
+            &::-webkit-scrollbar{
+                width: 7px;
+            }
+            &::-webkit-scrollbar-button{
+                background-color: transparent;
+                border-radius: 4px;
+            }
+            &::-webkit-scrollbar-track-piece{
+                background: transparent;
+            }
+            &::-webkit-scrollbar-thumb{
+                border-radius: 4px;
+                border: 5px solid rgba(141, 140, 140, 0.6);
+            }
+            &::-webkit-scrollbar-track{
+                box-shadow: transparent;
+            }
+        }
+    }
+}
+
+input[type=checkbox]{
+    cursor: pointer;
+}
+
+.any-text{
+    color: $black;
+    font-size: 20px;
+}
